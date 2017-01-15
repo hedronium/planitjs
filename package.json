@@ -1,0 +1,29 @@
+{
+    "name": "planitjs",
+    "version": "1.0.0",
+    "description": "A Node.js CLI tool for making plan files based on simple data storage formats like YAML, JSON, etc.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nahiyan Alamgir <eyan.towni@gmail.com> (http://github.com/hedronium)",
+    "license": "ISC",
+    "dependencies": {
+        "cli-color": "^1.1.0",
+        "command-line-args": "^3.0.5",
+        "js-yaml": "^3.6.1"
+    },
+    "devDependencies": {
+        "mocha": "^3.0.0",
+        "should": "^10.0.0",
+        "simple-mock": "^0.7.0",
+        "test-console": "^1.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hedronium/planitjs"
+    },
+    "bin": {
+        "planitjs": "./bin/planitjs.js"
+    }
+}
