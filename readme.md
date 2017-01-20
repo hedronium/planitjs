@@ -4,7 +4,7 @@
 A planning tool made for humans which lets them define their plans in common data storage formats (e.g. YAML, JSON).
 
 ##Philosophy
-Planitjs has been written to maximise productivity. It's based on the simple principles of demand and supply. Here, planning is part of demanding whilst planitjs is the supplier.
+Planitjs has been written to maximise productivity. It's based on the simple principles of demand and supply. Here, you define your demands through plan files while planitjs supplies your demand.
 
 ##Installation
 
@@ -39,10 +39,38 @@ Plans files are defined in formats like YAML, JSON, etc.
 
 It is the job of planitjs to turn your plans into reality through the data provided in the plan files :)
 
-New flavors of plans can be added by installing specific node modules.
+Planned to make a bunch or directory and files? Planitjs got your back!
 
-File name of a plan file indicates the flavor (type of plan).
+###Flavors
+For different type of plans, you need specific flavors to process them.
+
+Specific flavors of plans can be used by installing node modules associated with the flavor.
+
+File name of a plan file indicates the flavor (type of plan) and may contain hyphen separated arguments.
 
 For example, a plan file named `fs.yaml` will instruct planitjs to use the node module `planitjs-fs` for processing it.
 
 > Node modules related to a plan flavor are prefixed `planitjs-`.
+
+###Attributes
+Sometimes you may want to specify how a plan file should be processed. For example, you may want to include name of a song you're planning to write. You pass on the name as an attribute. 
+
+Attributes can be provided in the filename of the plan file, separated by hyphens.
+
+For e.g. naming a plan file `guitartab-strutter.txt` instructs planitjs to use the flavor 'guitartab' and passes the argument 'strutter', which is the name of the song, for processing it.
+
+How arguments are dealt depends totally on the flavor. You can pass as many arguments as you like, just by separating them with hyphens.
+
+##Development
+###Flavors
+Flavors are node modules responsible for processing a specific type of plan file.
+
+Whenever a plan file is processed, the flavor associated with it is 'require'-d. Contents of the plan file and the arguments are passed on to the module as it's loaded.
+
+#####Example
+```js
+// index.js
+module.exports = function (contents, args) {
+	console.log("File contents: " + contents);
+	console.log("First argument: " + args[0]);
+};
