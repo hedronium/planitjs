@@ -1,6 +1,6 @@
 {
   "name": "planitjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Node.js CLI tool for making plan files based on simple data storage formats like YAML, JSON, etc.",
   "main": "index.js",
   "scripts": {
