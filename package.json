@@ -11,6 +11,7 @@
   "dependencies": {
     "cli-color": "^1.1.0",
     "command-line-args": "^3.0.5",
+    "command-line-commands": "^2.0.0",
     "js-yaml": "^3.6.1"
   },
   "devDependencies": {

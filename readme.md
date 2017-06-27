@@ -65,12 +65,14 @@ How arguments are dealt depends totally on the flavor. You can pass as many argu
 ### Flavors
 Flavors are node modules responsible for processing a specific type of plan file.
 
-Whenever a plan file is processed, the flavor associated with it is 'require'-d. Contents of the plan file and the arguments are passed on to the module as it's loaded.
+Whenever a plan file is processed, the flavor associated with it is 'require'-d. Contents of the plan file and the arguments are passed on to the module's "run" method. Having a run method is a necessity for a node module to be qualified as a flavor.
 
 ##### Example
 ```js
 // index.js
-module.exports = function (contents, args) {
-    console.log("File contents: " + contents);
-    console.log("First argument: " + args[0]);
+module.exports = {
+    run: function (contents, args) {
+        console.log("File contents: " + contents);
+        console.log("First argument: " + args[0]);
+    }
 };

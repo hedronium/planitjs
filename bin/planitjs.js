@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+const commandLineCommands = require('command-line-commands');
+const validCommands = [null, 'init', 'create'];
+const {command, argv} = commandLineCommands(validCommands);
+
 const options = require('command-line-args')(
     [
         {
@@ -8,13 +12,20 @@ const options = require('command-line-args')(
         }
     ]
 );
-const clc = require('cli-color');
-const fs = require('fs');
-const path = require('path');
-const planitjs = require('../lib/planitjs');
 
-if (options.version)
-    console.log(clc.blue("Planitjs v.1.0.4. Made by Towni and Eyan."));
-else
-    planitjs(fs, clc, path);
-    // console.log("I'm towni and I love my eyan!");
+var planitjs = require('../index');
+
+switch (command) {
+    case null:
+        if (options.version)
+            planitjs.showVersion();
+        else
+            planitjs.run();
+            // console.log("I'm towni and I love my eyan!");
+        break;
+    case 'init':
+        planitjs.init();
+        break;
+    case 'create':
+        planitjs.create(argv);
+}
