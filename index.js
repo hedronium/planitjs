@@ -48,7 +48,7 @@ module.exports = {
         return r;
     },
     showVersion: function () {
-        console.log(this.clc.blue("Planitjs v.1.0.5. Made by Towni and Eyan."));
+        console.log("Planitjs v.1.0.5. Made by Towni and Eyan.");
     },
     showProcessedMessage: function (name) {
         console.log(this.clc.green("Processed ") + this.clc.black(name + "."));
